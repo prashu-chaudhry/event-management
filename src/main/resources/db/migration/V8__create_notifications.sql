@@ -1,0 +1,10 @@
+CREATE TABLE notifications (
+    id UUID PRIMARY KEY,
+    user_id UUID NOT NULL REFERENCES users(id),
+    booking_id UUID REFERENCES bookings(id),
+    msg VARCHAR NOT NULL,
+    status VARCHAR NOT NULL CHECK (status IN ('PENDING', 'SENT', 'FAILED')),
+    type VARCHAR NOT NULL CHECK (type IN ('BOOKING_CONFIRMED', 'BOOKING_CANCELLED', 'REFUND_PROCESSED', 'RESERVATION_EXPIRED')),
+    created_at TIMESTAMPTZ NOT NULL,
+    updated_at TIMESTAMPTZ NOT NULL
+);

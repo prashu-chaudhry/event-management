@@ -1,0 +1,14 @@
+create  index idx_events_name on events(name);
+create  index idx_events_type on events(type);
+create  index idx_events_event_start on events(event_start);
+create  index idx_venues_city on venues(city);
+CREATE INDEX idx_events_venue_id ON events(venue_id);
+CREATE INDEX idx_seats_venue_id ON seats(venue_id);
+CREATE INDEX idx_event_seats_event_id ON event_seats(event_id);
+CREATE INDEX idx_event_seats_seat_id ON event_seats(seat_id);
+CREATE INDEX idx_event_seats_booking_id ON event_seats(booking_id);
+CREATE INDEX idx_bookings_user_id ON bookings(user_id);
+CREATE INDEX idx_bookings_event_id ON bookings(event_id);
+CREATE INDEX idx_payments_booking_id ON payments(booking_id);
+CREATE INDEX idx_notifications_user_id ON notifications(user_id);
+CREATE INDEX idx_notifications_booking_id ON notifications(booking_id);
